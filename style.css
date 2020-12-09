@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    padding: 0px;
 }
 .wrapper {
     width: 1400px;
@@ -7,17 +8,19 @@ body{
     background: linear-gradient(90deg, rgba(198,197,197,1) 0%, rgba(233,233,233,1) 25%, rgba(248,249,249,1) 75%, rgba(198,197,197,1) 100%); 
     height: 1200px;
     margin-top: 0px;
+    padding-top: 0px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 }
-
+.content{
+    margin-top: 150px;
+}
 .gallery {
     width: 900px;
-    
+    margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -25,12 +28,21 @@ body{
     justify-content: space-between;
     align-items: center;
     background-color: white;
+    box-shadow: 3px 5px 5px #aaaaaa, -3px 5px 5px #aaaaaa;
+    border-radius: 5px;
 }
 
-.arrowLeft{
+.arrow:hover{
+    cursor: pointer;
+}
+.cls-1:hover {
+    cursor: pointer;
+    fill: #aaaaaa;
+}
+.left{
     margin-left: 20px;
 }
-.arrowRight {
+.right {
     transform: rotate(0.5turn);
     margin-right: 20px;
 }
@@ -41,13 +53,9 @@ height: 400px;
 margin-left: auto;
 margin-right: auto;
 background-color: yellow;
+display: flexbox;
 }
-.image {
-    width: 800px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 img {
     width: 800px;
@@ -58,17 +66,47 @@ img {
 .story {
     background-color: rgba(25, 25, 25, .6);
     position: relative;
-    bottom: 20%;
+    height: 125px;
+    bottom: 129px;
     z-index: +1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 20px;
+    padding-right: 20px;
+    
 }
 h1 {
     color: white;
-    margin-top: 0px;
-    opacity: 1;
+    margin: 0px;
+    margin-bottom: 17px;
 }
 p {
     color: white;
+    vertical-align: bottom;
+    margin: 0px;
+    margin-bottom: 20px;
 }
 
+.thumbnails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    margin-bottom: 25px;
 
+}
+
+.thumbnail {
+    height: 75px;
+    width: 75px;
+    background: rgb(235,234,234);
+    background: linear-gradient(0deg, rgba(235,234,234,1) 0%, rgba(255,255,255,1) 100%);
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 12px 10px -10px #aaaaaa;
+}
 
