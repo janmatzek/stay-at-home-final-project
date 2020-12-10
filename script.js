@@ -30,7 +30,7 @@ let scotland = {
 }
 
 let sunset = {
-    photo: 'images/sunsetClouds.jpg',
+    photo: 'images/sunset.jpg',
     title: 'Sunset and clouds',
     description: "Integer tempor. Duis risus. Etiam dictum tincidunt diam. Proin mattis lacinia justo. Nullam eget nisl."
 }
@@ -60,10 +60,24 @@ $('#photo-description').text(imagesData[currentPhoto].description)
 loadPhoto(currentPhoto)
 
 $('#rightArrow').click( () => {
+    if (currentPhoto<7) {
     currentPhoto++;
-    loadPhoto(currentPhoto);
+    loadPhoto(currentPhoto)}
+    else {
+        currentPhoto = 0;
+        loadPhoto(currentPhoto)
+    }
 })
 $('#leftArrow').click( () => {
+    if (currentPhoto>0) {
     currentPhoto = currentPhoto - 1;
-    loadPhoto(currentPhoto);
+    loadPhoto(currentPhoto)}
+    else {
+        currentPhoto = 7;
+        loadPhoto(currentPhoto)
+    }
+})
+
+imagesData.forEach ((item, index) => {
+    $('.thumbnails').append(`<div class="thumbnail" id="><img src="images/${item}.jpg" "></div>`)
 })
