@@ -60,7 +60,7 @@ $('#photo-description').text(imagesData[currentPhoto].description)
 loadPhoto(currentPhoto)
 
 $('#rightArrow').click( () => {
-    if (currentPhoto<7) {
+    if (currentPhoto<(imagesData.length-1)) {
     currentPhoto++;
     loadPhoto(currentPhoto)}
     else {
@@ -80,5 +80,13 @@ $('#leftArrow').click( () => {
 
 imagesData.forEach ((item, index) => {
     item = imagesData[index].photo
-    $('.thumbnails').append(`<div class="thumbnail" id=""><img src="${item}" class="th"></div>`)
+    $('.thumbnails').append(`<div class="thumbnail" data-index="${index}"><img src="${item}" class="th"></div>`)
+    
+})
+
+$('.thumbnail').click((event) => {
+
+    let indexClicked = $(event.target).attr('data-index')
+    currentPhoto = parseInt(indexClicked)
+    loadPhoto(currentPhoto)
 })

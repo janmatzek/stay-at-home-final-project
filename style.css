@@ -121,4 +121,5 @@ p {
     height: 65px;
     object-fit: cover;
     object-position: 100% 0;
+    pointer-events: none
 }
