@@ -136,6 +136,9 @@ p {
     display: none;
 }
 
+.thumbnail:hover{
+    cursor: pointer;
+}
 .thumbnail:hover .bubble{
     display: block;
 }
