@@ -79,5 +79,6 @@ $('#leftArrow').click( () => {
 })
 
 imagesData.forEach ((item, index) => {
-    $('.thumbnails').append(`<div class="thumbnail" id="><img src="images/${item}.jpg" "></div>`)
+    item = imagesData[index].photo
+    $('.thumbnails').append(`<div class="thumbnail" id=""><img src="${item}" class="th"></div>`)
 })
