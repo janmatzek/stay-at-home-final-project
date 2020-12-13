@@ -51,14 +51,6 @@ let imagesData = [alps, bled, fuji, path, scotland, sunset, thailand, yellowston
 
 let currentPhoto = 0
 
-let loadPhoto = (photoNumber) => {
-$('#photo').attr('src', imagesData[currentPhoto].photo)
-$('#photo-title').text(imagesData[currentPhoto].title)
-$('#photo-description').text(imagesData[currentPhoto].description)
-}
-// the append is an issue -> it literally appends to previous value, including what was inserted by javaScript
-loadPhoto(currentPhoto)
-
 $('#rightArrow').click( () => {
     if (currentPhoto<(imagesData.length-1)) {
     currentPhoto++;
@@ -80,13 +72,22 @@ $('#leftArrow').click( () => {
 
 imagesData.forEach ((item, index) => {
     item = imagesData[index].photo
-    $('.thumbnails').append(`<div class="thumbnail" data-index="${index}"><img src="${item}" class="th"></div>`)
+    $('.thumbnails').append(`<div class="thumbnail" data-index="${index}" id="th${index}"><img src="${item}" class="th"><div class="bubble">`+imagesData[index].title+`</div></div>`)
     
 })
 
 $('.thumbnail').click((event) => {
-
     let indexClicked = $(event.target).attr('data-index')
     currentPhoto = parseInt(indexClicked)
     loadPhoto(currentPhoto)
 })
+
+let loadPhoto = (photoNumber) => {
+    $('#photo').attr('src', imagesData[currentPhoto].photo)
+    $('#photo-title').text(imagesData[currentPhoto].title)
+    $('#photo-description').text(imagesData[currentPhoto].description)
+    $('.thumbnail').css('box-shadow', '0px 12px 10px -10px #aaaaaa')
+    $('#th'+currentPhoto).css('box-shadow', '0px 12px 10px -10px #000000')
+    }
+    // the append is an issue -> it literally appends to previous value, including what was inserted by javaScript
+    loadPhoto(currentPhoto)
